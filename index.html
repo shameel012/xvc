@@ -114,6 +114,29 @@
 </div>
 
 <script src="script.js"></script>
+    <script>
+document.addEventListener('keydown', function(e) {
+    // Disable Ctrl+U, Ctrl+S, Ctrl+C, Ctrl+A, Ctrl+P
+    if (
+        e.ctrlKey &&
+        ['u', 's', 'c', 'a', 'p'].includes(e.key.toLowerCase())
+    ) {
+        e.preventDefault();
+        alert("This action is disabled.");
+    }
+
+    // Disable F12
+    if (e.key === "F12") {
+        e.preventDefault();
+        alert("Developer tools are disabled.");
+    }
+});
+
+// Disable right-click
+document.addEventListener('contextmenu', function(e) {
+    e.preventDefault();
+});
+</script>
 
 </body>
 </html>
